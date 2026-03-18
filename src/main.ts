@@ -19,10 +19,27 @@ async function init() {
 
     const appDiv = document.querySelector<HTMLDivElement>('#app'); 
 
+async function init() {
+    const appDiv = document.querySelector<HTMLDivElement>('#app'); 
+
+
+
+
+
+
+
+if (appDiv) { 
+// ÉTAPE A : On injecte le HTML (on crée les boutons) 
+    appDiv.innerHTML = ` <ul class="panier"> ${panier.map(...)} ... `; 
+// ÉTAPE B : Maintenant qu'ils existent, on peut leur atttacher des évènements  
+// Récupère TOUS les boutons ayant la classe "btn-order" 
+const tousLesBoutons = document.querySelectorAll<HTMLButtonElement>('.btn order'); 
+
+
     if (appDiv) { 
-        appDiv.innerHTML = `
-            <ul class="menu">
-                ${menuData.map(art => ` 
+        appDiv.innerHTML = `<ul class="menu"> ${menuData.map(art => ` 
+
+            
                     <li class="card">
                      ${art.prix < 10 ? `<span class="badge">Bon Plan</span>` : ``} 
                         <h3>${art.nom}</h3>
@@ -33,7 +50,12 @@ async function init() {
                 `).join('')}
             </ul>
         `;
+
+
+
+
     } 
 } 
 
 init();
+
